@@ -1,43 +1,38 @@
-package com.example.posts.ui//package com.example.posts.ui
-//
-//import android.view.LayoutInflater
-//import android.view.ViewGroup
-//import androidx.recyclerview.widget.RecyclerView
-//import com.example.posts.viewModels.PostsViewModels
-//import retrofit2.http.POST
-//
-//class postsRvAdapter(var posts: List<POST>):RecyclerView.Adapter<postsRvAdapter.postsViewHolder>() {
-//
-//    override fun onCreateViewHolder(
-//        parent: ViewGroup,
-//        viewType: Int
-//    ): PostsViewModels {
-//        val postsListsBinding
-//        val binding = postsListsBinding.inflate(LayoutInflater.from(parent.context), parent, false)
-//        return postsViewHolder(binding)
-//    }
-//
-//    private fun postsViewHolder(binding: ): PostsViewModels {
-//
-//    }
-//
-//    override fun onBindViewHolder(holder: PostsViewModels, position: Int) {
-//        val currentpost = posts.get(position)
-//        val binding = holder.binding
-//
-//
-////        Picasso
-////            .get().load(currentProduct.thumbnail)
-////            .resize(80, 80)
-////            .centerInside()
-////            .transform(CropCircleTransformation())
-////            .into(binding.ivImage)
-////
-////    }
-////fun getItemCount(): Int {
-//            return posts.size
-//        }
-//
-//        class postsViewHolder(var binding: PostsListBinding) : RecyclerView.ViewHolder(binding.root)
-//    }
-//}
+package com.example.posts.ui
+
+import android.view.LayoutInflater
+import android.view.ViewGroup
+import androidx.recyclerview.widget.RecyclerView
+import com.example.posts.databinding.PostsListItemBinding
+import com.example.posts.models.Posts
+import com.squareup.picasso.Picasso
+import jp.wasabeef.picasso.transformations.CropCircleTransformation
+
+class PostsRvAdapter(var post: List<Posts>):RecyclerView.Adapter<PostsRvAdapter.PostsViewHolder>() {
+    override fun onCreateViewHolder(
+        parent: ViewGroup,
+        viewType: Int
+    ): PostsViewHolder {
+        val binding=PostsListItemBinding.inflate(LayoutInflater.from(parent.context),parent,false)
+        return PostsViewHolder(binding)
+    }
+    override fun onBindViewHolder(holder: PostsViewHolder, position: Int) {
+        val currentPosts = post.get(position)
+        val binding = holder.binding
+        binding.imgPost.tag=currentPosts.toString()
+        binding.tvBody.text= currentPosts.body
+        binding.tvText.text= currentPosts.title
+        binding.tvid.text=currentPosts.id.toString()
+        binding.tvuserId.text=currentPosts.userId.toString()
+        Picasso
+            .get().load(currentPosts.id)
+            .resize(80, 80)
+            .centerInside()
+            .transform(CropCircleTransformation())
+            .into(binding.imgPost)
+            }
+        override fun getItemCount(): Int {
+            return post.size
+        }
+    class PostsViewHolder(var binding: PostsListItemBinding):RecyclerView.ViewHolder(binding.root)
+}

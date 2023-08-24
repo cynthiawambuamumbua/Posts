@@ -5,7 +5,7 @@ plugins {
 
 android {
     namespace = "com.example.posts"
-    compileSdk = 33
+    compileSdk = 34
 
     defaultConfig {
         applicationId = "com.example.posts"
@@ -34,7 +34,7 @@ android {
         jvmTarget = "17"
     }
     buildFeatures {
-        viewBinding;true
+        viewBinding=true
     }
 }
 
@@ -53,4 +53,9 @@ dependencies {
     implementation ("androidx.lifecycle:lifecycle-viewmodel-ktx:2.7.0-alpha01")
     implementation ("androidx.lifecycle:lifecycle-livedata-ktx:2.7.0-alpha01")
     implementation ("androidx.activity:activity-ktx:1.7.2")
+    implementation ("com.squareup.picasso:picasso:2.8")
+    implementation ("jp.wasabeef:picasso-transformations:2.4.0")
+
+
+
 }

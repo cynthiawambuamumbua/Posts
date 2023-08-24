@@ -1,5 +1,6 @@
 package com.example.posts.api
 
+import com.example.posts.models.Posts
 import com.example.posts.models.postsResponse
 import retrofit2.Response
 import retrofit2.http.GET
@@ -11,5 +12,5 @@ interface apiInterface {
     suspend fun getPosts(): Response<postsResponse>
 
     @GET("/posts/{id}")
-    suspend fun getPosts(@Path("id") postId: Int): Response<POST>
+    suspend fun getPosts(@Path("id") postId: Int): Response<Posts>
 }
