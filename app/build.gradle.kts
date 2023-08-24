@@ -53,8 +53,8 @@ dependencies {
     implementation ("androidx.lifecycle:lifecycle-viewmodel-ktx:2.7.0-alpha01")
     implementation ("androidx.lifecycle:lifecycle-livedata-ktx:2.7.0-alpha01")
     implementation ("androidx.activity:activity-ktx:1.7.2")
-    implementation ("com.squareup.picasso:picasso:2.8")
-    implementation ("jp.wasabeef:picasso-transformations:2.4.0")
+//    implementation ("com.squareup.picasso:picasso:2.8")
+//    implementation ("jp.wasabeef:picasso-transformations:2.4.0")
 
 
 

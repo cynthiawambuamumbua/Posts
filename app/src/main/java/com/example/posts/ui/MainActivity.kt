@@ -22,11 +22,12 @@ class MainActivity : AppCompatActivity() {
         super.onResume()
         postsViewModel.fetchPosts()
         postsViewModel.postsLiveData.observe(this, Observer {postsList->
+//            val postAdapt=PostsRvAdapter(postsList ?: emptyList())
             Toast.makeText(baseContext, "fetched ${postsList.size} posts", Toast.LENGTH_LONG)
                 .show()
             binding.rvPosts.layoutManager = LinearLayoutManager(this@MainActivity)
-            binding.rvPosts.adapter = PostsRvAdapter(postsList)
-
+            binding.rvPosts.adapter =PostsRvAdapter(postsList)
+//            binding.rvPosts.adapter=postAdapt
         })
         postsViewModel.errorLiveData.observe(this, Observer { error ->
             Toast.makeText(baseContext,error, Toast.LENGTH_LONG).show()
